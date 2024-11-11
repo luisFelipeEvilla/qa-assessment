@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { sessionRepository, userRepository } from '../database';
-import { appLog, authMiddleware, expressPromise, getSession } from '../lib';
+import { sessionRepository, userRepository } from '../../database';
+import { appLog, authMiddleware, expressPromise, getSession } from '../../lib';
 import { loginRequestSchema } from '@qa-assessment/shared';
 
 const route = Router();

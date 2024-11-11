@@ -1,30 +1,14 @@
 import request from 'supertest';
-import { sessionRepository, userRepository } from '../database';
+import { sessionRepository, userRepository } from '../../database';
 import { Session, User } from '@qa-assessment/shared';
 import bcrypt from 'bcrypt';
-import { makeExpressApp } from '../lib';
-
+import { makeExpressApp } from '../../lib';
+import { mockUser, mockSession } from '../../mock/user.mock';
 describe('Authentication', () => {
   const app = makeExpressApp();
-  let mockUser: User;
-  let mockSession: Session;
   const currentDate = new Date();
 
   beforeEach(() => {
-    // Mock user data
-    mockUser = {
-      id: '1',
-      username: 'testuser',
-      password: bcrypt.hashSync('password123', 10),
-    };
-
-    mockSession = {
-      id: '1',
-      userId: mockUser.id,
-      token: 'test-session-token',
-      createdAt: currentDate,
-    };
-
     // Mock repository methods
     jest
       .spyOn(userRepository, 'findByCredentials')
@@ -61,7 +45,7 @@ describe('Authentication', () => {
       expect(response.status).toBe(200);
       expect(response.body).toEqual({
         ...mockSession,
-        createdAt: currentDate.toISOString(),
+        createdAt: mockSession.createdAt.toISOString(),
       });
       expect(userRepository.findByCredentials).toHaveBeenCalledTimes(1);
       expect(sessionRepository.create).toHaveBeenCalledTimes(1);
