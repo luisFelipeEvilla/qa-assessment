@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { postRepository } from '../database';
-import { authMiddleware, expressPromise, getSession } from '../lib';
+import { postRepository } from '../../database';
+import { authMiddleware, expressPromise, getSession } from '../../lib';
 import { createPostSchema, updatePostSchema } from '@qa-assessment/shared';
 
 const router = Router();
@@ -21,7 +21,9 @@ router.get(
       .find(req.params.postId)
       .then((post) => res.json(post))
       .catch((e) => {
-        console.error(e);
+        if (process.env.NODE_ENV !== 'test') {
+          console.error(e);
+        }
         res.status(404).json({ message: 'Post not found' });
       }),
   ),
