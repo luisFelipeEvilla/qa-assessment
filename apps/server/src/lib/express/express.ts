@@ -1,5 +1,5 @@
-import { ExpressErrorMiddleware, ExpressMiddleware } from './types';
-import { sessionRepository } from '../database';
+import { ExpressErrorMiddleware, ExpressMiddleware } from '../types';
+import { sessionRepository } from '../../database';
 
 import { Request, Response } from 'express';
 import { Session } from '@qa-assessment/shared';

@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { corsMiddleware, serverErrorMiddleware } from './express';
+import { corsMiddleware, serverErrorMiddleware } from './express/express';
 import { authRoutes, postsRoutes, usersRouter } from '../routes';
 
 export const makeExpressApp = () => {
