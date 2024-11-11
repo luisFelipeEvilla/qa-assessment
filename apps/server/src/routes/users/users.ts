@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { sessionRepository, userRepository } from '../database';
+import { sessionRepository, userRepository } from '../../database';
 import {
   userRegisterRequestSchema,
   userUpdateRequestSchema,
 } from '@qa-assessment/shared';
-import { appLog, expressPromise } from '../lib';
+import { appLog, expressPromise } from '../../lib';
 
 const router = Router();
 
@@ -45,7 +45,7 @@ router.put(
         ...user,
         ...body.data,
         favoriteBook: body.data.favoriteBook
-          ? JSON.stringify(body.data.favoriteBook)
+          ? JSON.stringify(body.data.favoriteBook) // should save book as another entity
           : undefined,
       })
       .then((user) => res.json(user));
