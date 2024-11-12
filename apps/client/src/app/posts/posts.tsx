@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Pencil, PlusCircle, Trash2, User } from 'lucide-react';
 import { Post, User as UserType } from '@qa-assessment/shared';
-import { apiUrl, displayError } from '../lib';
+import { apiUrl, displayError } from '../../lib';
 import { useNavigate } from 'react-router-dom';
 import {
   Alert,
@@ -12,8 +12,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../components';
-import { useApiFetch } from '../hooks';
+} from '../../components';
+import { useApiFetch } from '../../hooks';
 
 type ExtendedUser = UserType & {
   favoriteBook?: {
@@ -139,6 +139,7 @@ const PostsPage = () => {
                           size="icon"
                           onClick={() => handleDelete(post.id)}
                           className="delete-button"
+                          data-testid="delete-button"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>
