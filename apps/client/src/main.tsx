@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './app/root';
 import PostsPage from './app/posts';
-import Login from './app/login';
+import Login from './app/login/login';
 import Signup from './app/signup';
 import PostForm from './app/post-form';
 import PostFormWithData from './app/post-form-with-data';

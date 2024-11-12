@@ -13,12 +13,12 @@ import {
   Form,
   Input,
   SimpleFormField,
-} from '../components';
+} from '../../components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginRequestSchema, Session } from '@qa-assessment/shared';
-import { useFetch, useStorage } from '../hooks';
-import { apiUrl, displayError } from '../lib';
+import { useFetch, useStorage } from '../../hooks';
+import { apiUrl, displayError } from '../../lib';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
