@@ -92,11 +92,11 @@ const UserProfile = () => {
           <CardContent>
             <div className="space-y-4">
               <div className="border-t pt-4">
-                <h3 className="text-sm font-medium text-gray-500">User ID</h3>
+                <h3 data-testid="user-id" className="text-sm font-medium text-gray-500">User ID</h3>
                 <p className="mt-1 text-sm text-gray-900">{user?.id}</p>
               </div>
               <div className="border-t pt-4">
-                <h3 className="text-sm font-medium text-gray-500">
+                <h3 data-testid="account-status" className="text-sm font-medium text-gray-500">
                   Account Status
                 </h3>
                 <p className="mt-1 text-sm text-gray-900">
@@ -107,12 +107,13 @@ const UserProfile = () => {
               </div>
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="text-sm font-medium text-gray-500">
+                  <h3 data-testid="favorite-book" className="text-sm font-medium text-gray-500">
                     Favorite Book
                   </h3>
                   <Button
                     variant="ghost"
                     size="sm"
+                    data-testid="edit-favorite-book"
                     onClick={() => setIsEditingBook(!isEditingBook)}
                   >
                     <Pencil className="h-4 w-4" />

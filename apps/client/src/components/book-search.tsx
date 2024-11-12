@@ -63,6 +63,7 @@ const BookSearch = ({ onSelect, open, onOpenChange }: BookSearchProps) => {
       {loading && <p className="text-gray-500 text-center">Loading...</p>}
       {books.map((book) => (
         <div
+          data-testid="book-search-item"
           key={book.key}
           className="cursor-pointer hover:bg-accent p-4 rounded"
           onClick={() => {
